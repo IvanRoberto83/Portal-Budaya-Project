@@ -1,0 +1,114 @@
+<?php
+
+/**
+ * @file
+ * Install hooks for Portal Budaya Surakarta.
+ */
+
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\node\Entity\NodeType;
+use Drupal\taxonomy\Entity\Vocabulary;
+
+/**
+ * Implements hook_install().
+ */
+function portal_budaya_install(): void {
+  $vocabularies = [
+    'jenis_konten' => 'Jenis Konten',
+    'daerah' => 'Daerah',
+    'periode' => 'Periode',
+    'tokoh' => 'Tokoh',
+    'tradisi' => 'Tradisi',
+    'tempat_bersejarah' => 'Tempat Bersejarah',
+  ];
+
+  foreach ($vocabularies as $vid => $name) {
+    if (!Vocabulary::load($vid)) {
+      Vocabulary::create([
+        'vid' => $vid,
+        'name' => $name,
+        'description' => 'Kosakata terkontrol untuk katalog budaya Surakarta.',
+      ])->save();
+    }
+  }
+
+  if (!NodeType::load('konten_budaya')) {
+    NodeType::create([
+      'type' => 'konten_budaya',
+      'name' => 'Konten Budaya',
+      'description' => 'Entri katalog budaya, sejarah, dan arsip digital.',
+      'new_revision' => TRUE,
+    ])->save();
+  }
+
+  $storage_definitions = [
+    'field_jenis_konten' => ['entity_reference', 'Jenis konten', 'taxonomy_term', 'jenis_konten', -1],
+    'field_daerah' => ['entity_reference', 'Daerah', 'taxonomy_term', 'daerah', -1],
+    'field_periode' => ['entity_reference', 'Periode', 'taxonomy_term', 'periode', -1],
+    'field_tokoh_terkait' => ['entity_reference', 'Tokoh terkait', 'node', 'konten_budaya', -1],
+    'field_tradisi_terkait' => ['entity_reference', 'Tradisi terkait', 'node', 'konten_budaya', -1],
+    'field_artefak_terkait' => ['entity_reference', 'Artefak terkait', 'node', 'konten_budaya', -1],
+    'field_peristiwa_terkait' => ['entity_reference', 'Peristiwa terkait', 'node', 'konten_budaya', -1],
+    'field_tempat_terkait' => ['entity_reference', 'Tempat bersejarah terkait', 'node', 'konten_budaya', -1],
+    'field_material' => ['string', 'Material', NULL, NULL, 255],
+    'field_pembuat' => ['string', 'Pembuat', NULL, NULL, 255],
+    'field_pemilik' => ['string', 'Pemilik', NULL, NULL, 255],
+    'field_lokasi' => ['string', 'Lokasi', NULL, NULL, 255],
+    'field_deskripsi_katalog' => ['text_long', 'Deskripsi katalog', NULL, NULL, NULL],
+    'field_sumber' => ['string_long', 'Sumber', NULL, NULL, NULL],
+    'field_hak_penggunaan' => ['string_long', 'Hak penggunaan', NULL, NULL, NULL],
+    'field_tanggal_dokumentasi' => ['datetime', 'Tanggal dokumentasi', NULL, NULL, NULL],
+    'field_klasifikasi_informasi' => ['list_string', 'Klasifikasi informasi', NULL, NULL, 32],
+    'field_media_terkait' => ['entity_reference', 'Media terkait', 'media', NULL, -1],
+  ];
+
+  foreach ($storage_definitions as $field_name => $definition) {
+    [$type, $label, $target_type, $target_bundle, $max_length] = $definition;
+    if (!FieldStorageConfig::loadByName('node', $field_name)) {
+      $settings = [];
+      if ($type === 'entity_reference') {
+        $settings['target_type'] = $target_type;
+      }
+      if ($type === 'string' && $max_length) {
+        $settings['max_length'] = $max_length;
+      }
+      if ($type === 'list_string') {
+        $settings['allowed_values'] = [
+          'fakta' => 'Fakta',
+          'interpretasi' => 'Interpretasi',
+          'dokumentasi' => 'Dokumentasi',
+        ];
+      }
+      if ($type === 'datetime') {
+        $settings['datetime_type'] = 'date';
+      }
+      FieldStorageConfig::create([
+        'field_name' => $field_name,
+        'entity_type' => 'node',
+        'type' => $type,
+        'settings' => $settings,
+        'cardinality' => in_array($field_name, ['field_media_terkait', 'field_tokoh_terkait', 'field_tradisi_terkait', 'field_artefak_terkait', 'field_peristiwa_terkait', 'field_tempat_terkait'], TRUE) ? -1 : 1,
+      ])->save();
+    }
+
+    if (!FieldConfig::loadByName('node', 'konten_budaya', $field_name)) {
+      $field_settings = [];
+      if ($type === 'entity_reference') {
+        $field_settings['handler'] = 'default';
+        $field_settings['handler_settings'] = [];
+        if (!empty($target_bundle)) {
+          $field_settings['handler_settings']['target_bundles'] = [$target_bundle];
+        }
+      }
+      FieldConfig::create([
+        'field_name' => $field_name,
+        'entity_type' => 'node',
+        'bundle' => 'konten_budaya',
+        'label' => $label,
+        'settings' => $field_settings,
+        'required' => FALSE,
+      ])->save();
+    }
+  }
+}

@@ -1,0 +1,17 @@
+<article{{ attributes.addClass('pb-node') }}>
+  <header class="pb-node-header">
+    {{ title_prefix }}
+    {% if label and not page %}
+      <h2{{ title_attributes.addClass('pb-node-title') }}><a href="{{ url }}" rel="bookmark">{{ label }}</a></h2>
+    {% elseif label %}
+      <h1{{ title_attributes.addClass('pb-node-title') }}>{{ label }}</h1>
+    {% endif %}
+    {{ title_suffix }}
+    {% if display_submitted %}
+      <div class="pb-node-meta">{{ author_name }} · {{ date }}</div>
+    {% endif %}
+  </header>
+  <div{{ content_attributes.addClass('pb-node-content') }}>
+    {{ content }}
+  </div>
+</article>

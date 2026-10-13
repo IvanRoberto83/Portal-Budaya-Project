@@ -1,0 +1,47 @@
+<div class="pb-site">
+  <header class="pb-header" role="banner">
+    <div class="pb-header-inner">
+      <a class="pb-brand" href="{{ path('<front>') }}" aria-label="{{ 'Beranda Portal Budaya Surakarta'|t }}">
+        <span class="pb-brand-mark" aria-hidden="true">ꦱ</span>
+        <span class="pb-brand-copy">
+          <strong>{{ 'Ruang Budaya Surakarta'|t }}</strong>
+          <small>{{ 'Portal budaya, sejarah, dan arsip digital'|t }}</small>
+        </span>
+      </a>
+      <button class="pb-menu-toggle" type="button" aria-expanded="false" aria-controls="pb-main-nav">
+        <span>{{ 'Menu'|t }}</span>
+      </button>
+      <nav class="pb-nav" id="pb-main-nav" aria-label="{{ 'Navigasi utama'|t }}">
+        {{ page.primary_menu }}
+        {{ page.secondary_menu }}
+      </nav>
+    </div>
+  </header>
+
+  {% if page.highlighted %}
+    <div class="pb-highlighted">{{ page.highlighted }}</div>
+  {% endif %}
+  {% if page.breadcrumb %}
+    <div class="pb-breadcrumb wrap">{{ page.breadcrumb }}</div>
+  {% endif %}
+
+  <main id="main-content" class="pb-main">
+    {{ page.content }}
+    {% if page.sidebar %}
+      <aside class="pb-sidebar">{{ page.sidebar }}</aside>
+    {% endif %}
+  </main>
+
+  <footer class="pb-footer">
+    <div class="pb-footer-inner">
+      <div>
+        <a class="pb-footer-brand" href="{{ path('<front>') }}">Ruang Budaya Surakarta</a>
+        <p>Menjelajahi warisan, cerita, dan arsip budaya Surakarta dalam satu ruang digital.</p>
+      </div>
+      <div class="pb-footer-meta">
+        <span>Portal Budaya, Sejarah, dan Arsip Digital Daerah</span>
+        <span>© {{ 'now'|date('Y') }} Ruang Budaya Surakarta</span>
+      </div>
+    </div>
+  </footer>
+</div>

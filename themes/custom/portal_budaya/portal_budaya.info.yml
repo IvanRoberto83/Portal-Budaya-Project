@@ -1,0 +1,16 @@
+name: 'Portal Budaya Surakarta'
+type: theme
+description: 'Tema portal katalog budaya, sejarah, dan arsip digital Surakarta, dikembangkan dari Claro.'
+core_version_requirement: '^10 || ^11'
+base theme: claro
+libraries:
+  - portal_budaya/global
+regions:
+  header: Header
+  primary_menu: 'Primary menu'
+  secondary_menu: 'Secondary menu'
+  highlighted: Highlighted
+  breadcrumb: Breadcrumb
+  content: Content
+  sidebar: Sidebar
+  footer: Footer

@@ -1,0 +1,9 @@
+global:
+  css:
+    theme:
+      css/portal-budaya.css: {}
+  js:
+    js/portal-budaya.js: {}
+  dependencies:
+    - core/drupal
+    - core/once

@@ -1,0 +1,83 @@
+<div class="pb-site pb-front">
+  <header class="pb-header" role="banner">
+    <div class="pb-header-inner">
+      <a class="pb-brand" href="{{ path('<front>') }}">
+        <span class="pb-brand-mark" aria-hidden="true">ꦱ</span>
+        <span class="pb-brand-copy">
+          <strong>Ruang Budaya Surakarta</strong>
+          <small>Portal budaya, sejarah, dan arsip digital</small>
+        </span>
+      </a>
+      <button class="pb-menu-toggle" type="button" aria-expanded="false" aria-controls="pb-main-nav">
+        <span>Menu</span>
+      </button>
+      <nav class="pb-nav" id="pb-main-nav" aria-label="{{ 'Navigasi utama'|t }}">
+        {{ page.primary_menu }}
+        {{ page.secondary_menu }}
+      </nav>
+    </div>
+  </header>
+
+  {% if page.highlighted %}
+    <div class="pb-highlighted">{{ page.highlighted }}</div>
+  {% endif %}
+
+  <main id="main-content">
+    <section class="pb-hero">
+      <div class="pb-hero-overlay"></div>
+      <div class="pb-hero-content">
+        <p class="pb-eyebrow">JEJAK BUDAYA · SURAKARTA</p>
+        <h1>Setiap warisan punya cerita.</h1>
+        <p>Temukan artefak, tradisi, tokoh, tempat bersejarah, dan dokumentasi yang merekam kekayaan budaya Surakarta.</p>
+        <div class="pb-hero-actions">
+          <a class="pb-button pb-button-light" href="{{ path('<front>') }}katalog">Jelajahi koleksi <span aria-hidden="true">↗</span></a>
+          <a class="pb-text-link" href="#tentang">Tentang portal <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="pb-hero-caption">Merekam warisan, membuka pengetahuan.</div>
+    </section>
+
+    <section class="pb-section pb-intro" id="tentang">
+      <div class="pb-section-kicker">ARSIP YANG TERHUBUNG</div>
+      <div class="pb-intro-grid">
+        <h2>Budaya bukan sekadar objek. Ia adalah jaringan cerita.</h2>
+        <div>
+          <p>Ruang Budaya Surakarta menghimpun informasi budaya dalam satu katalog digital. Setiap entri dapat terhubung dengan tokoh, tradisi, daerah, periode, dan tempat yang membentuk kisahnya.</p>
+          <p class="pb-muted">Gunakan portal ini untuk menjelajah, belajar, mengajar, meneliti, dan mengenal warisan budaya daerah.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-section pb-categories">
+      <div class="pb-section-heading">
+        <div><div class="pb-section-kicker">JELAJAHI BERDASARKAN TEMA</div><h2>Ragam koleksi</h2></div>
+        <a class="pb-inline-link" href="{{ path('<front>') }}katalog">Lihat katalog <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="pb-category-grid">
+        <a class="pb-category-card pb-cat-artifact" href="{{ path('<front>') }}katalog"><span class="pb-category-number">01</span><span class="pb-category-title">Artefak & benda budaya</span><span class="pb-category-arrow">↗</span></a>
+        <a class="pb-category-card pb-cat-tradition" href="{{ path('<front>') }}katalog"><span class="pb-category-number">02</span><span class="pb-category-title">Tradisi & upacara</span><span class="pb-category-arrow">↗</span></a>
+        <a class="pb-category-card pb-cat-people" href="{{ path('<front>') }}katalog"><span class="pb-category-number">03</span><span class="pb-category-title">Tokoh & sejarah</span><span class="pb-category-arrow">↗</span></a>
+        <a class="pb-category-card pb-cat-place" href="{{ path('<front>') }}katalog"><span class="pb-category-number">04</span><span class="pb-category-title">Tempat bersejarah</span><span class="pb-category-arrow">↗</span></a>
+        <a class="pb-category-card pb-cat-performing" href="{{ path('<front>') }}katalog"><span class="pb-category-number">05</span><span class="pb-category-title">Seni pertunjukan</span><span class="pb-category-arrow">↗</span></a>
+        <a class="pb-category-card pb-cat-archive" href="{{ path('<front>') }}katalog"><span class="pb-category-number">06</span><span class="pb-category-title">Foto & arsip digital</span><span class="pb-category-arrow">↗</span></a>
+      </div>
+    </section>
+
+    <section class="pb-quote-band">
+      <div class="pb-quote-mark">“</div>
+      <blockquote>Merawat ingatan hari ini, agar warisan tetap hidup esok hari.</blockquote>
+      <p>RUANG BUDAYA SURAKARTA</p>
+    </section>
+
+    <section class="pb-section pb-content-slot">
+      {{ page.content }}
+    </section>
+  </main>
+
+  <footer class="pb-footer">
+    <div class="pb-footer-inner">
+      <div><a class="pb-footer-brand" href="{{ path('<front>') }}">Ruang Budaya Surakarta</a><p>Menjelajahi warisan, cerita, dan arsip budaya Surakarta dalam satu ruang digital.</p></div>
+      <div class="pb-footer-meta"><span>Portal Budaya, Sejarah, dan Arsip Digital Daerah</span></div>
+    </div>
+  </footer>
+</div>

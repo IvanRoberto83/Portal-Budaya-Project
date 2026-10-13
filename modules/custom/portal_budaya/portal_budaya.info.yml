@@ -1,0 +1,11 @@
+name: 'Portal Budaya Surakarta — Model Konten'
+type: module
+description: 'Menyiapkan tipe konten dan metadata untuk katalog budaya dan arsip digital Surakarta.'
+package: 'Custom'
+core_version_requirement: '^10 || ^11'
+dependencies:
+  - drupal:node
+  - drupal:taxonomy
+  - drupal:media
+  - drupal:file
+  - drupal:image
