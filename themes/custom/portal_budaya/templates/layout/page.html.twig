@@ -1,0 +1,510 @@
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="site-brand" href="{{ path('<front>') }}">
+      <span class="brand-name">Portal Budaya</span>
+      <span class="brand-subtitle">Surakarta</span>
+    </a>
+
+    <button
+      class="mobile-menu-toggle"
+      type="button"
+      aria-label="Buka menu navigasi"
+      aria-expanded="false"
+      data-menu-toggle>
+      ☰
+    </button>
+
+    <nav class="main-navigation" aria-label="Navigasi utama" data-main-navigation>
+      {{ page.primary_menu }}
+    </nav>
+
+    <div class="header-actions">
+      {{ page.header }}
+
+      <button
+        class="theme-toggle"
+        type="button"
+        aria-label="Ganti tema"
+        data-theme-toggle>
+        ☾
+      </button>
+    </div>
+
+  </div>
+</header>
+
+
+<main id="main-content" class="site-main">
+    <a href="#main-content" class="visually-hidden-focusable">Lewati ke konten utama</a>
+ 
+    <section class="hero-section">
+    <div class="container hero-inner">
+
+        <div class="hero-content">
+        <h1>Surakarta, Kota Dua Keraton, Batik, dan Wayang</h1>
+
+        <p>
+            Telusuri tradisi, tokoh, artefak, dan arsip dari Solo.
+            Pencarian membaca judul, metadata, dan nama lain,
+            sehingga "Solo" dan "Sala" menemukan hasil yang sama.
+        </p>
+
+        <div class="hero-search">
+            {{ page.hero_search }}
+        </div>
+
+        <div class="search-suggestions">
+            <span>Coba cari:</span>
+            <a href="/search/node?keys=keraton">keraton</a>
+            <a href="/search/node?keys=batik">batik</a>
+            <a href="/search/node?keys=wayang">wayang</a>
+            <a href="/search/node?keys=sekaten">sekaten</a>
+        </div>
+        </div>
+
+        <div class="hero-logo">
+        <img
+            src="{{ directory }}/images/logo-surakarta.png"
+            alt="Lambang Kota Surakarta"
+        >
+        <span>Lambang Kota Surakarta</span>
+        </div>
+
+    </div>
+    </section>
+
+
+    {{ page.highlighted }}
+
+    {% if page.sidebar_first %}
+        <aside class="sidebar sidebar-first">{{ page.sidebar_first }}</aside>
+    {% endif %}
+
+  
+    <div class="main-content">
+    {{ page.content }}
+
+    
+        <section class="about-surakarta">
+        <div class="container about-grid">
+
+            <div class="about-map">
+            <img
+                src="{{ directory }}/images/peta-surakarta.png"
+                alt="Ilustrasi peta Pulau Jawa dengan penanda lokasi Surakarta"
+            >
+            <p class="map-caption">
+                Letak Surakarta di Pulau Jawa. Sketsa tidak berskala;
+                sekitar 60 km di timur laut Yogyakarta.
+            </p>
+            </div>
+
+            <div class="about-content">
+            <h2>Mengenal Surakarta</h2>
+
+            <p class="about-description">
+                Surakarta, atau Solo, tumbuh dari desa Sala di tepi Bengawan
+                Solo. Pada 1745 Pakubuwono II memindahkan keraton ke sini,
+                dan sejak Perjanjian Salatiga (1757) kota ini memiliki dua
+                istana: Kasunanan dan Mangkunegaran.
+            </p>
+
+            <div class="about-information">
+
+                <div class="about-row">
+                <strong>Dua istana</strong>
+                <a href="/tempat-bersejarah">Keraton Surakarta, Pura Mangkunegaran</a>
+                </div>
+
+                <div class="about-row">
+                <strong>Batik</strong>
+                <a href="/katalog-tradisi">Kampung Batik Laweyan, Batik Sidomukti</a>
+                </div>
+
+                <div class="about-row">
+                <strong>Wayang</strong>
+                <a href="/seni-pertunjukan">Wayang Orang Sriwedari, Wayang Kulit Purwa</a>
+                </div>
+
+                <div class="about-row">
+                <strong>Nama Sala dan Solo</strong>
+                <a href="/sejarah-peristiwa">Asal Mula Nama Sala dan Solo</a>
+                </div>
+
+                <div class="about-row">
+                <strong>Sejarah kota</strong>
+                <a href="/sejarah-peristiwa">Perjanjian Giyanti, Pakubuwono X</a>
+                </div>
+
+            </div>
+
+            <p class="about-footnote">
+                Lima kecamatan: Banjarsari, Jebres, Laweyan,
+                Pasar Kliwon, dan Serengan.
+            </p>
+        </div>
+
+    </div>
+    </section>
+
+    
+    <section class="featured-section">
+    <div class="container">
+
+        <div class="featured-heading">
+        <h2>Singgah dulu ke sini</h2>
+        <p>Enam tempat dan tradisi untuk mengawali perkenalan dengan Surakarta.</p>
+        </div>
+
+        <div class="featured-grid">
+
+        <article class="featured-card">
+            <img src="{{ directory }}/images/keraton-surakarta-hadiningrat.jpg"
+                alt="Keraton Surakarta Hadiningrat">
+            <div class="featured-card-content">
+            <h3>Keraton Surakarta Hadiningrat</h3>
+            <p>Mulai dari sini: istana Kasunanan yang ditempati sejak 1745, di kawasan Baluwarti.</p>
+            <span class="featured-tag">Tempat Bersejarah · Pasar Kliwon</span>
+            <a href="https://www.google.com/maps/search/?api=1&query=Keraton+Surakarta+Hadiningrat"
+                target="_blank" rel="noopener noreferrer">Lihat di peta ↗</a>
+            </div>
+        </article>
+
+        <article class="featured-card">
+            <img src="{{ directory }}/images/puro-mangkunegaran.jpg"
+                alt="Pura Mangkunegaran">
+            <div class="featured-card-content">
+            <h3>Pura Mangkunegaran</h3>
+            <p>Istana kedua kota ini, dikenal lewat pendapa agungnya.</p>
+            <span class="featured-tag">Tempat Bersejarah · Banjarsari</span>
+            <a href="https://www.google.com/maps/search/?api=1&query=Pura+Mangkunegaran"
+                target="_blank" rel="noopener noreferrer">Lihat di peta ↗</a>
+            </div>
+        </article>
+
+        <article class="featured-card">
+            <img src="{{ directory }}/images/museum-radya-pustaka.jpg"
+                alt="Museum Radya Pustaka">
+            <div class="featured-card-content">
+            <h3>Museum Radya Pustaka</h3>
+            <p>Naskah dan benda kuno dalam satu gedung bersejarah.</p>
+            <span class="featured-tag">Tempat Bersejarah · Banjarsari</span>
+            <a href="https://www.google.com/maps/search/?api=1&query=Museum+Radya+Pustaka"
+                target="_blank" rel="noopener noreferrer">Lihat di peta ↗</a>
+            </div>
+        </article>
+
+        <article class="featured-card">
+            <img src="{{ directory }}/images/kampung-batik-laweyan.jpg"
+                alt="Kampung Batik Laweyan">
+            <div class="featured-card-content">
+            <h3>Kampung Batik Laweyan</h3>
+            <p>Rumah juragan batik lama dan perajin yang masih bekerja.</p>
+            <span class="featured-tag">Tempat Bersejarah · Laweyan</span>
+            <a href="https://www.google.com/maps/search/?api=1&query=Kampung+Batik+Laweyan"
+                target="_blank" rel="noopener noreferrer">Lihat di peta ↗</a>
+            </div>
+        </article>
+
+        <article class="featured-card">
+            <img src="{{ directory }}/images/wayang-orang-sriwedari.jpg"
+                alt="Wayang Orang Sriwedari">
+            <div class="featured-card-content">
+            <h3>Wayang Orang Sriwedari</h3>
+            <p>Pentas wayang yang dimainkan manusia, rutin di Taman Sriwedari.</p>
+            <span class="featured-tag">Seni Pertunjukan · Laweyan</span>
+            <a href="https://www.google.com/maps/search/?api=1&query=Wayang+Orang+Sriwedari"
+                target="_blank" rel="noopener noreferrer">Lihat di peta ↗</a>
+            </div>
+        </article>
+
+        <article class="featured-card">
+            <img src="{{ directory }}/images/kirab-pusaka-1-suro.jpg"
+                alt="Kirab Pusaka 1 Suro">
+            <div class="featured-card-content">
+            <h3>Kirab Pusaka 1 Suro</h3>
+            <p>Arak-arakan pusaka keraton saat malam pergantian tahun Jawa.</p>
+            <span class="featured-tag">Tradisi · Pasar Kliwon</span>
+            <a href="https://www.google.com/maps/search/?api=1&query=Keraton+Surakarta"
+                target="_blank" rel="noopener noreferrer">Lihat di peta ↗</a>
+            </div>
+        </article>
+
+        </div>
+    </div>
+    </section>
+
+    <section class="explore-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Ekspresi Budaya</h2>
+                <p>
+                Praktik dan ekspresi budaya yang hidup di komunitas.
+                </p>
+            </div>
+
+            <div class="category-grid">
+                <a href="/katalog-artefak" class="category-card">
+                <span class="category-number">01</span>
+                <h3>Tradisi</h3>
+                <p>Praktik budaya yang diwariskan dan dijalankan komunitas.</p>
+                <span class="category-link">Jelajahi →</span>
+                </a>
+
+                <a href="/katalog-tradisi" class="category-card">
+                <span class="category-number">02</span>
+                <h3>Seni Pertunjukan</h3>
+                <p>Kesenian yang dipentaskan di hadapan penonton.</p>
+                <span class="category-link">Jelajahi →</span>
+                </a>
+
+                <a href="/seni-pertunjukan" class="category-card">
+                <span class="category-number">03</span>
+                <h3>Bahasa dan Istilah</h3>
+                <p>Kata atau istilah daerah beserta artinya.</p>
+                <span class="category-link">Jelajahi →</span>
+                </a>
+
+                <a href="/bahasa-istilah" class="category-card">
+                <span class="category-number">04</span>
+                <h3>Cerita Rakyat</h3>
+                <p>Cerita turun-temurun dari suatu daerah.</p>
+                <span class="category-link">Jelajahi →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="explore-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Benda & Tempat</h2>
+                <p>
+                Objek dan lokasi nyata yang bisa ditunjuk.
+                </p>
+            </div>
+
+            <div class="category-grid">
+                <a href="/katalog-artefak" class="category-card">
+                <span class="category-number">01</span>
+                <h3>Artefak</h3>
+                <p>Benda bersejarah atau budaya yang bisa ditunjuk.</p>
+                <span class="category-link">Jelajahi →</span>
+                </a>
+
+                <a href="/katalog-tradisi" class="category-card">
+                <span class="category-number">02</span>
+                <h3>Tempat Bersejarah</h3>
+                <p>Lokasi nyata yang bernilai sejarah atau budaya.</p>
+                <span class="category-link">Jelajahi →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="explore-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Sejarah & Tokoh</h2>
+                <p>
+                Peristiwa dan pelakunya, berurutan menurut waktu.
+                </p>
+            </div>
+
+            <div class="category-grid">
+                <a href="/katalog-artefak" class="category-card">
+                <span class="category-number">01</span>
+                <h3>Sejarah</h3>
+                <p>Narasi peristiwa menurut waktu.</p>
+                <span class="category-link">Jelajahi →</span>
+                </a>
+
+                <a href="/katalog-tradisi" class="category-card">
+                <span class="category-number">02</span>
+                <h3>Tokoh</h3>
+                <p>Orang yang berperan dalam sejarah atau budaya.</p>
+                <span class="category-link">Jelajahi →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="explore-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Dokumentasi</h2>
+                <p>
+                Foto, video, dan dokumen arsip sebagai bukti.
+                </p>
+            </div>
+
+            <div class="category-grid">
+                <a href="/katalog-artefak" class="category-card">
+                <span class="category-number">01</span>
+                <h3>Foto</h3>
+                <p>Dokumentasi visual objek atau kegiatan budaya.</p>
+                <span class="category-link">Jelajahi →</span>
+                </a>
+
+                <a href="/katalog-tradisi" class="category-card">
+                <span class="category-number">02</span>
+                <h3>Video</h3>
+                <p>Dokumentasi audiovisual objek atau kegiatan budaya.</p>
+                <span class="category-link">Jelajahi →</span>
+                </a>
+
+                <a href="/katalog-tradisi" class="category-card">
+                <span class="category-number">03</span>
+                <h3>Dokumen Arsip</h3>
+                <p>Dokumen tertulis dari arsip sebagai sumber primer.</p>
+                <span class="category-link">Jelajahi →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="explore-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Publikasi</h2>
+                <p>
+                Konten yang disusun dan ditafsirkan kurator atau editor.
+                </p>
+            </div>
+
+            <div class="category-grid">
+                <a href="/katalog-artefak" class="category-card">
+                <span class="category-number">01</span>
+                <h3>Koleksi Digital</h3>
+                <p>Kumpulan item pilihan kurator dalam satu tema.</p>
+                <span class="category-link">Jelajahi →</span>
+                </a>
+
+                <a href="/katalog-tradisi" class="category-card">
+                <span class="category-number">02</span>
+                <h3>Artikel</h3>
+                <p>Tulisan yang menjelaskan atau menafsirkan konten budaya.</p>
+                <span class="category-link">Jelajahi →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    </div>
+
+
+    {% if page.sidebar_second %}
+        <aside class="sidebar sidebar-second">{{ page.sidebar_second }}</aside>
+    {% endif %}
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+
+    <!-- Kolom 1: Identitas Surakarta -->
+    <div class="footer-brand">
+      <img
+        src="{{ directory }}/images/logo-surakarta.png"
+        alt="Lambang Kota Surakarta"
+        class="footer-logo"
+      >
+
+      <h2>Surakarta</h2>
+
+      <p>
+        Solo, Jawa Tengah. Kota di antara dua keraton,
+        tempat batik, wayang, dan gamelan masih dipakai sehari-hari.
+      </p>
+    </div>
+
+    <!-- Kolom 2: Tempat Wisata -->
+    <div class="footer-column">
+      <h3>Singgah di Surakarta</h3>
+
+      <ul>
+        <li>
+          <a href="https://www.google.com/maps/search/?api=1&query=Keraton+Surakarta">
+            Keraton Surakarta
+          </a>
+          <a class="footer-map-link" href="https://www.google.com/maps/search/?api=1&query=Keraton+Surakarta">Peta</a>
+        </li>
+        <li>
+          <a href="https://www.google.com/maps/search/?api=1&query=Pura+Mangkunegaran">
+            Pura Mangkunegaran
+          </a>
+          <a class="footer-map-link" href="https://www.google.com/maps/search/?api=1&query=Pura+Mangkunegaran">Peta</a>
+        </li>
+        <li>
+          <a href="https://www.google.com/maps/search/?api=1&query=Museum+Radya+Pustaka">
+            Museum Radya Pustaka
+          </a>
+          <a class="footer-map-link" href="https://www.google.com/maps/search/?api=1&query=Museum+Radya+Pustaka">Peta</a>
+        </li>
+        <li>
+          <a href="https://www.google.com/maps/search/?api=1&query=Kampung+Batik+Laweyan">
+            Kampung Batik Laweyan
+          </a>
+          <a class="footer-map-link" href="https://www.google.com/maps/search/?api=1&query=Kampung+Batik+Laweyan">Peta</a>
+        </li>
+        <li>
+          <a href="https://www.google.com/maps/search/?api=1&query=Pasar+Gede+Hardjonagoro">
+            Pasar Gede Hardjonagoro
+          </a>
+          <a class="footer-map-link" href="https://www.google.com/maps/search/?api=1&query=Pasar+Gede+Hardjonagoro">Peta</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Kolom 3: Agenda dan Kesenian -->
+    <div class="footer-column">
+      <h3>Agenda dan kesenian</h3>
+
+      <ul>
+        <li><a href="/sejarah-peristiwa">Sekaten</a></li>
+        <li><a href="/sejarah-peristiwa">Kirab Pusaka 1 Suro</a></li>
+        <li>
+          <a href="/seni-pertunjukan">Wayang Orang Sriwedari</a>
+          <a class="footer-map-link" href="https://www.google.com/maps/search/?api=1&query=Wayang+Orang+Sriwedari">Peta</a>
+        </li>
+        <li>
+          <a href="https://www.google.com/maps/search/?api=1&query=Taman+Budaya+Jawa+Tengah">Taman Budaya Jawa Tengah</a>
+          <a class="footer-map-link" href="https://www.google.com/maps/search/?api=1&query=Taman+Budaya+Jawa+Tengah">Peta</a>
+        </li>
+        <li>
+          <a href="https://www.google.com/maps/search/?api=1&query=Institut+Seni+Indonesia+Surakarta">Institut Seni Indonesia Surakarta</a>
+          <a class="footer-map-link" href="https://www.google.com/maps/search/?api=1&query=Institut+Seni+Indonesia+Surakarta">Peta</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Kolom 4: Referensi -->
+    <div class="footer-column">
+      <h3>Sumber di luar portal</h3>
+
+      <ul>
+        <li>
+          <a href="https://surakarta.go.id/" target="_blank" rel="noopener noreferrer">
+            Pemerintah Kota Surakarta ↗
+          </a>
+        </li>
+        <li>
+          <a href="https://id.wikipedia.org/wiki/Kota_Surakarta" target="_blank" rel="noopener noreferrer">
+            Surakarta di Wikipedia ↗
+          </a>
+        </li>
+        <li>
+          <a href="https://www.indonesia.travel/" target="_blank" rel="noopener noreferrer">
+            Indonesia Travel ↗
+          </a>
+        </li>
+        <li>
+          <a href="https://www.isi-ska.ac.id/" target="_blank" rel="noopener noreferrer">
+            Institut Seni Indonesia Surakarta ↗
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+

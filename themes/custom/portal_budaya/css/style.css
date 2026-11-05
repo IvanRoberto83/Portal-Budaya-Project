@@ -1,0 +1,960 @@
+/* =================================
+   PORTAL BUDAYA - GLOBAL STYLE
+   ================================= */
+
+:root {
+  --bg: #f5f6f4;
+  --surface: #ffffff;
+  --ink: #16223a;
+  --muted: #5a6475;
+  --line: #d9dcd6;
+
+  --soga: #8a5528;
+  --soga-bg: #f1e4d3;
+
+  --hero: #16223a;
+  --hero-text: #f5f6f4;
+
+  --success: #2d6a4f;
+  --warning: #9a5b00;
+  --danger: #a4262c;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Public Sans", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--ink);
+  font-family: "Spectral", Georgia, serif;
+  line-height: 1.2;
+}
+
+a {
+  color: var(--soga);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--soga);
+  outline-offset: 2px;
+}
+
+/* Container */
+
+.container {
+  width: min(1120px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .container {
+    width: min(100% - 32px, 1120px);
+  }
+}
+
+/* =================================
+   HEADER & NAVIGATION
+   ================================= */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding-block: 12px;
+}
+
+.site-brand {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.brand-name {
+  font-family: "Spectral", Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.brand-subtitle {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--soga);
+}
+
+.main-navigation {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.main-navigation ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.main-navigation li {
+  margin: 0;
+  padding: 0;
+}
+
+.main-navigation a {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.main-navigation a:hover,
+.main-navigation a.is-active {
+  background: var(--soga-bg);
+  color: var(--soga);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.theme-toggle,
+.mobile-menu-toggle {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.mobile-menu-toggle {
+  display: none;
+}
+
+/* =================================
+   MAIN CONTENT
+   ================================= */
+
+.site-main {
+  min-height: 65vh;
+}
+
+.main-content {
+  width: 100%;
+}
+
+/* =================================
+   FOOTER
+   ================================= */
+
+.site-footer {
+  margin-top: 64px;
+  padding: 40px 0;
+  background: var(--hero);
+  color: var(--hero-text);
+}
+
+.footer-credit {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.85rem;
+}
+
+/* =================================
+   RESPONSIVE
+   ================================= */
+
+@media (max-width: 900px) {
+  .header-inner {
+    gap: 12px;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .main-navigation {
+    display: none;
+    flex: 0 0 100%;
+    order: 3;
+  }
+
+  .main-navigation.is-open {
+    display: block;
+  }
+
+  .main-navigation ul {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .main-navigation a {
+    padding: 12px;
+  }
+
+  .header-actions {
+    order: 2;
+  }
+}
+
+.hero-section {
+  min-height: 440px;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(22, 34, 58, 0.96) 0%,
+      rgba(22, 34, 58, 0.82) 55%,
+      rgba(22, 34, 58, 0.35) 100%
+    ),
+    url("../images/hero-surakarta.jpg") center/cover no-repeat;
+  color: var(--hero-text);
+}
+
+.hero-inner {
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+.hero-content {
+  max-width: 680px;
+}
+
+.hero-label {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: #e8c59f;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.hero-content h1 {
+  margin: 0 0 20px;
+  color: #fff;
+  font-size: clamp(2.2rem, 5vw, 3.7rem);
+}
+
+.hero-content p {
+  max-width: 590px;
+  margin-bottom: 28px;
+  color: #e8eaf0;
+  font-size: 1.05rem;
+}
+
+.hero-button {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 4px;
+  background: var(--soga);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.hero-button:hover {
+  background: #70421f;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 380px;
+  }
+
+  .hero-inner {
+    padding-top: 52px;
+    padding-bottom: 52px;
+  }
+}
+
+.visually-hidden-focusable {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.visually-hidden-focusable:focus {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 9999;
+  width: auto;
+  height: auto;
+  padding: 12px 18px;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background: var(--surface);
+  color: var(--ink);
+  border: 2px solid var(--soga);
+  border-radius: 4px;
+}
+
+.explore-section {
+  padding: 32px 0;
+  background: var(--bg);
+}
+
+.section-heading {
+  max-width: 650px;
+  margin-bottom: 36px;
+}
+
+.section-label {
+  color: var(--soga);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.section-heading h2 {
+  margin: 12px 0;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+}
+
+.section-heading p {
+  color: var(--muted);
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 220px;
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--ink);
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(22, 34, 58, 0.1);
+  color: var(--ink);
+}
+
+.category-number {
+  color: var(--soga);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.category-card h3 {
+  margin: 18px 0 8px;
+  font-size: 1.4rem;
+}
+
+.category-card p {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.category-link {
+  margin-top: auto;
+  color: var(--soga);
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .explore-section {
+    padding: 56px 0;
+  }
+}
+
+/* Hero layout */
+.hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 650px;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+}
+
+.hero-logo {
+  width: 260px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-logo img {
+  width: 100%;
+  max-height: 370px;
+  object-fit: contain;
+}
+
+.hero-logo span {
+  color: #d5d5d5;
+  font-size: 0.85rem;
+}
+
+/* Search form */
+.hero-search {
+  margin-top: 24px;
+}
+
+.hero-search form {
+  display: flex;
+  width: 100%;
+  max-width: 560px;
+  gap: 0;
+}
+
+.hero-search input[type="search"],
+.hero-search input[type="text"] {
+  flex: 1;
+  min-width: 0;
+  height: 50px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px 0 0 6px;
+  background: #fff;
+  color: #16223a;
+}
+
+.hero-search input[type="submit"] {
+  height: 50px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 0 6px 6px 0;
+  background: #d9a66f;
+  color: #16223a;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.hero-search input[type="submit"]:hover {
+  background: #c58c50;
+}
+
+.search-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  color: #e8eaf0;
+  font-size: 0.85rem;
+}
+
+.search-suggestions a {
+  padding: 3px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.search-suggestions a:hover {
+  background: var(--soga);
+}
+
+@media (max-width: 768px) {
+  .hero-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  .hero-logo {
+    width: 150px;
+    align-self: center;
+  }
+
+  .hero-logo img {
+    max-height: 200px;
+  }
+
+  .hero-search form {
+    max-width: 100%;
+  }
+}
+
+.about-surakarta {
+  padding: 64px 0;
+  background: #101827;
+  color: #f5f6f4;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 48px;
+}
+
+.about-map img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.map-caption {
+  margin-top: 20px;
+  color: #b8c2d3;
+  font-size: 0.85rem;
+}
+
+.about-content h2 {
+  margin: 0 0 16px;
+  color: #fff;
+  font-size: 2rem;
+}
+
+.about-description {
+  margin-bottom: 20px;
+  color: #f0f1f4;
+  line-height: 1.65;
+}
+
+.about-information {
+  border-top: 1px solid #354052;
+}
+
+.about-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #354052;
+}
+
+.about-row strong {
+  color: #e3a45d;
+  font-size: 0.9rem;
+}
+
+.about-row a {
+  color: #f5f6f4;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.about-row a:hover {
+  color: #e3a45d;
+}
+
+.about-footnote {
+  margin-top: 18px;
+  color: #b8c2d3;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .about-surakarta {
+    padding: 48px 0;
+  }
+
+  .about-row {
+    grid-template-columns: 110px 1fr;
+  }
+}
+
+.node__meta,
+.node__submitted,
+.submitted {
+  display: none !important;
+}
+
+/* Mengatur ukuran kolom pencarian */
+.search-block-form input[type="search"],
+.search-block-form input[type="text"] {
+  width: 360px;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Mengatur susunan input dan tombol */
+.search-block-form form {
+  display: flex;
+  align-items: stretch;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.search-block-form .form-item {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+}
+
+.search-block-form .form-actions {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .search-block-form {
+    width: 100%;
+  }
+
+  .search-block-form input[type="search"],
+  .search-block-form input[type="text"] {
+    width: 100%;
+  }
+
+  .search-block-form form {
+    width: 100%;
+  }
+}
+
+/* Menghilangkan jarak antara input dan tombol Search */
+.search-block-form form {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 0 !important;
+  width: 100%;
+  max-width: 480px;
+}
+
+.search-block-form .form-item {
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0 !important;
+}
+
+.search-block-form input[type="search"],
+.search-block-form input[type="text"] {
+  display: block;
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.search-block-form .form-actions {
+  flex: 0 0 auto;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.search-block-form button,
+.search-block-form input[type="submit"] {
+  height: 50px;
+  margin: 0 !important;
+  border-radius: 0 6px 6px 0;
+}
+
+/* Featured destinations */
+.featured-section {
+  padding: 16px 0 64px;
+  background: #101827;
+  color: #f5f6f4;
+}
+
+.featured-heading {
+  margin-bottom: 24px;
+}
+
+.featured-heading h2 {
+  margin: 0 0 8px;
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+.featured-heading p {
+  margin: 0;
+  color: #b8c2d3;
+  font-size: 0.95rem;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.featured-card {
+  overflow: hidden;
+  background: #19243c;
+  border: 1px solid #354052;
+  border-radius: 7px;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.featured-card:hover {
+  transform: translateY(-3px);
+  border-color: #d9a66c;
+}
+
+.featured-card img {
+  display: block;
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+}
+
+.featured-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 12px;
+  min-height: 145px;
+}
+
+.featured-card h3 {
+  margin: 0 0 5px;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.featured-card p {
+  margin: 0 0 10px;
+  color: #b8c2d3;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.featured-tag {
+  display: inline-block;
+  margin-top: auto;
+  margin-bottom: 8px;
+  padding: 3px 8px;
+  border-radius: 20px;
+  background: #3b3027;
+  color: #e3a45d;
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.featured-card a {
+  color: #e3a45d;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.featured-card a:hover {
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .featured-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-card img {
+    height: 190px;
+  }
+}
+
+/* Footer Portal Budaya */
+.site-footer {
+  padding: 48px 0 36px;
+  background: #0b1220;
+  color: #f5f6f4;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1.1fr 1.1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* Identitas Surakarta */
+.footer-brand {
+  max-width: 290px;
+}
+
+.footer-logo {
+  display: block;
+  width: 58px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.footer-brand h2 {
+  margin: 0 0 10px;
+  color: #fff;
+  font-size: 1.65rem;
+}
+
+.footer-brand p {
+  margin: 0;
+  color: #c3c9d3;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Judul setiap kolom */
+.footer-column h3 {
+  margin: 0 0 16px;
+  color: #e3a45d;
+  font-size: 1.05rem;
+}
+
+/* Daftar tautan */
+.footer-column ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-column li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.footer-column a {
+  color: #f5f6f4;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  color: #e3a45d;
+  text-decoration: underline;
+}
+
+/* Tombol peta */
+.footer-column .footer-map-link {
+  display: inline-block;
+  padding: 1px 9px;
+  border: 1px solid #8a5528;
+  border-radius: 20px;
+  color: #e3a45d;
+  font-size: 0.72rem;
+}
+
+.footer-column .footer-map-link:hover {
+  background: #8a5528;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Tampilan tablet */
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 36px 24px;
+  }
+}
+
+/* Tampilan ponsel */
+@media (max-width: 600px) {
+  .site-footer {
+    padding: 36px 0;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .footer-brand {
+    max-width: 100%;
+  }
+}
